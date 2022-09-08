@@ -8,18 +8,42 @@
     <link href="css/styles.css" rel="stylesheet">
 </head>
 <body>
-  <h1><%=kindofDay%></h1>
+  <div class="box" id="heading">
+    <h1><%=listTitle%></h1>
+  </div>
+  
+  
+<div class="box">
+ <% if(newListItems.length != 0){ %>
+  <%  for(let i=0; i<newListItems.length; i++) { %>
+  <div class="item">
+    <input type="checkbox" class="check">
+      <p id="item"><%=newListItems[i]%></p>
 
-  <ul>
-   
-  <%  for(var i=0; i<newListItems.length; i++) { %>
-        <li><%=newListItems[i]%></li>
- <%   } %>
-  </ul>
+      <!-- <form class="item" action="/" method="post">
+      <button type="submit" name="button" class="hide" onclick="this.parentNode.style.display='none' ">x</button>
+      <input type="hidden" id="bait" name="custId" value="">
+    </form> -->
+    </div>
+  <%   } %>
+ <% } %>
 
-  <form class="" action="/" method="post">
-    <input type="text" name="newItem">
-    <button type="submit" name="button">Add</button>
+ 
+  
+  
+  
+
+  <form class="item" action="/" method="post">
+    <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+    <button type="submit" name="list" value=<%= listTitle %> id="add" >+</button>
   </form>
+  
+  
+</div>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="js/index.js"></script>  
 </body>
 </html>
